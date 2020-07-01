@@ -1,5 +1,10 @@
 import React from "react";
+import Grid from "./grid/Grid";
 
 export default function Editor() {
-    return <div/>;
+  return (
+    <div>
+      <Grid></Grid>
+    </div>
+  );
 }

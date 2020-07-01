@@ -27,36 +27,39 @@ import { theme } from './common/theme';
 
 import Editor from './pages/editor/Editor';
 import Home from './pages/home/Home';
+import Grid from './pages/editor/grid/Grid';
 
 
 const home = (
   <Route path={'/'}>
-    <Editor />
+    <Home />
   </Route>
 );
 
 const editor = (
   <Route path={'/uml-editor'}>
-    <Home />
+    <Editor />
   </Route>
 );
 
 function App() {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <ConnectedRouter history={history}>
-          <QueryParamProvider ReactRouterRoute={Route}>
-            <ThemeProvider theme={theme}>
-              <Switch>
-                {home}
-                {editor}
-              </Switch>
-            </ThemeProvider>
-          </QueryParamProvider>
-        </ConnectedRouter>
-      </PersistGate>
-    </Provider>
+    <Grid/>
+    
+    // <Provider store={store}>
+    //   <PersistGate persistor={persistor}>
+    //     <ConnectedRouter history={history}>
+    //       <QueryParamProvider ReactRouterRoute={Route}>
+    //         <ThemeProvider theme={theme}>
+    //           <Switch>
+    //             {home}
+    //             {editor}
+    //           </Switch>
+    //         </ThemeProvider>
+    //       </QueryParamProvider>
+    //     </ConnectedRouter>
+    //   </PersistGate>
+    // </Provider>
   );
 }
 
