@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, rgbToHex, Box, Container } from "@material-ui/core";
+import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>

@@ -11,7 +11,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 // Routing
 // https://reacttraining.com/react-router/web/guides/quick-start
-import { Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 // Store
 //  https://react-redux.js.org/introduction/quick-start
@@ -31,37 +36,26 @@ import Grid from './pages/editor/grid/Grid';
 
 
 const home = (
-  <Route path={'/'}>
+  <Route path="/">
     <Home />
   </Route>
 );
 
 const editor = (
-  <Route path={'/uml-editor'}>
+  <Route path="/editor">
     <Editor />
   </Route>
 );
 
 function App() {
   return (
-    <Grid/>
-    
-    // <Provider store={store}>
-    //   <PersistGate persistor={persistor}>
-    //     <ConnectedRouter history={history}>
-    //       <QueryParamProvider ReactRouterRoute={Route}>
-    //         <ThemeProvider theme={theme}>
-    //           <Switch>
-    //             {home}
-    //             {editor}
-    //           </Switch>
-    //         </ThemeProvider>
-    //       </QueryParamProvider>
-    //     </ConnectedRouter>
-    //   </PersistGate>
-    // </Provider>
+    <Router>
+      <Switch>
+        {editor}
+        {home}
+      </Switch>
+    </Router>
   );
 }
-
 
 export default App;
