@@ -1,0 +1,25 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+/livable-uml/.pnp
+/livable-uml/.pnp.js
+
+# testing
+/livable-uml/coverage
+
+# production
+/livable-uml/build
+
+# misc
+/livable-uml/.DS_Store
+/livable-uml/.env.local
+/livable-uml/.env.development.local
+/livable-uml/.env.test.local
+/livable-uml/.env.production.local
+
+/livable-uml/npm-debug.log*
+/livable-uml/yarn-debug.log*
+/livable-uml/yarn-error.log*
+
+/livable-uml/package-lock.json
