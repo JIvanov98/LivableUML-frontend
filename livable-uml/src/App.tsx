@@ -1,26 +1,64 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+// Allow query params with router
+import { QueryParamProvider } from 'use-query-params';
+
+// Link routing and store
+import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
+// Routing
+// https://reacttraining.com/react-router/web/guides/quick-start
+import { Route, Switch } from 'react-router-dom';
+
+// Store
+//  https://react-redux.js.org/introduction/quick-start
+//  https://react-redux.js.org/next/api/hooks
+// eslint-disable-next-line no-restricted-globals
+import { history, persistor, store } from './redux/store';
+
+// Material UI's theming/styling solution
+//  https://material-ui.com/styles/basics/
+//  https://material-ui.com/customization/theming/
+import { ThemeProvider } from '@material-ui/core/styles';
+import { theme } from './common/theme';
+
+import Editor from './pages/editor/Editor';
+import Home from './pages/home/Home';
+
+
+const home = (
+  <Route path={'/'}>
+    <Editor />
+  </Route>
+);
+
+const editor = (
+  <Route path={'/uml-editor'}>
+    <Home />
+  </Route>
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ConnectedRouter history={history}>
+          <QueryParamProvider ReactRouterRoute={Route}>
+            <ThemeProvider theme={theme}>
+              <Switch>
+                {home}
+                {editor}
+              </Switch>
+            </ThemeProvider>
+          </QueryParamProvider>
+        </ConnectedRouter>
+      </PersistGate>
+    </Provider>
   );
 }
+
 
 export default App;
