@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "./grid/Grid";
 
-import Toolbar from "./Toolbar";
+import Toolbar from "./toolbar/Toolbar";
 
 export default function Editor() {
   return (
