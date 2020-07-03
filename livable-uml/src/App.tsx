@@ -32,7 +32,6 @@ import { theme } from './common/theme';
 
 import Editor from './pages/editor/Editor';
 import Home from './pages/home/Home';
-import Grid from './pages/editor/grid/Grid';
 
 
 const home = (
