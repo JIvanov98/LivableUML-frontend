@@ -1,6 +1,7 @@
 import React from "react";
 import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import Element from "../element/Element";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,7 +29,7 @@ export default function Grid() {
   const [coords, setCords] = React.useState({x: 0, y: 0});
   const classes = useStyles();
 
-  let mouseMoved = (e: any) => {
+  let mouseMoved = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     setCords({x: e.screenX, y: e.screenY})
   };
 
@@ -42,8 +43,17 @@ export default function Grid() {
         <svg>
           <path stroke="black" d="M 0 0 L 200 100" />
         </svg>
+        <Element
+          x={0}
+          y={0}
+        />
+        <Element
+          x={3}
+          y={10}
+        />
       </Paper>
     </Box>
+    
 
   );
 }
