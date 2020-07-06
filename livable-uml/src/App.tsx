@@ -48,12 +48,20 @@ const editor = (
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        {editor}
-        {home}
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ConnectedRouter history={history}>
+          <QueryParamProvider ReactRouterRoute={Route}>
+            <ThemeProvider theme={theme}>
+              <Switch>
+                {editor}
+                {home}
+              </Switch>
+            </ThemeProvider>
+          </QueryParamProvider>
+        </ConnectedRouter>
+      </PersistGate>
+    </Provider>
   );
 }
 

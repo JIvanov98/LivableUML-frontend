@@ -23,7 +23,7 @@ import {
     })
   );
   
-  export const NAV_BAR_COLOR = '#133F4D';
+  export const NAV_BAR_COLOR = '#133F4A';
   export const BACKGROUND_COLOR = '#FFFFFF';
   
   // Constants for styling Toolbars
