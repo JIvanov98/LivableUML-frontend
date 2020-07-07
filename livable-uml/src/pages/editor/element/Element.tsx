@@ -37,7 +37,8 @@ export default function Element(props: Props) {
   return (
     <Draggable
       defaultPosition={{x: props.x, y: props.y}}
-      grid={[25, 25]}>
+      grid={[25, 25]}
+      bounds="parent">
       <Box className={classes.root}>
         <p>Drag from here</p>
       </Box>

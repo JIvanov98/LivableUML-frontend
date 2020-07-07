@@ -2,8 +2,9 @@ import React from "react";
 import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Element from "../element/Element";
-import { store } from '../../../redux/store';
 import { EditorData } from "../types";
+import grid from '../../../common/images/grid.png';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,8 +21,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     paper: {
       padding: theme.spacing(1),
+      backgroundImage: `url(${grid})`,
       height: '90%',
       width: '90%',
+    },
+    draggableElementsBox: {
+      height: '1000px', 
+      width: '1000px', 
+      padding: '10px', 
+      justifyContent: 'center',
+      flexDirection: 'column',
+      alignItems: 'center',
     }
   }),
 );
@@ -47,11 +57,7 @@ export default function Grid(props: Props) {
       <Paper 
       elevation={9}
       className={classes.paper}>
-        <p>paper test</p>
         <h3>Mouse Coords - x={coords.x} y={coords.y}</h3>
-        <svg>
-          <path stroke="black" d="M 0 0 L 200 100" />
-        </svg>
         { elements }
       </Paper>
     </Box>
