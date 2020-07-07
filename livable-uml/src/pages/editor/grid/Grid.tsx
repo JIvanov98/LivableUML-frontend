@@ -40,8 +40,6 @@ export default function Grid(props: Props) {
     setCords({x: e.screenX, y: e.screenY});
   };
 
-  console.log("in grid");
-  console.log(props.data.elements);
   const elements = props.data.elements.map((e) => <Element x={e.x} y={e.y}></Element>);
 
   return (
