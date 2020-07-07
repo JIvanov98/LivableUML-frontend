@@ -3,6 +3,7 @@ import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Element from "../element/Element";
 import { store } from '../../../redux/store';
+import { EditorData } from "../types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,7 +26,12 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function Grid() {
+type Props = {
+  data: EditorData;
+}
+
+
+export default function Grid(props: Props) {
   
   const [coords, setCords] = React.useState({x: 0, y: 0});
   const classes = useStyles();
@@ -34,8 +40,9 @@ export default function Grid() {
     setCords({x: e.screenX, y: e.screenY});
   };
 
-  const data = store.getState().editor;
-  const elements = data.elements.map((e) => <Element x={e.x} y={e.y}></Element>);
+  console.log("in grid");
+  console.log(props.data.elements);
+  const elements = props.data.elements.map((e) => <Element x={e.x} y={e.y}></Element>);
 
   return (
     <Box onMouseMove={mouseMoved} className={classes.root}>
