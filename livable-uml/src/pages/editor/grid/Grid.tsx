@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Element from "../element/Element";
+import { store } from '../../../redux/store';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,8 +31,11 @@ export default function Grid() {
   const classes = useStyles();
 
   let mouseMoved = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    setCords({x: e.screenX, y: e.screenY})
+    setCords({x: e.screenX, y: e.screenY});
   };
+
+  const data = store.getState().editor;
+  const elements = data.elements.map((e) => <Element x={e.x} y={e.y}></Element>);
 
   return (
     <Box onMouseMove={mouseMoved} className={classes.root}>
@@ -43,17 +47,8 @@ export default function Grid() {
         <svg>
           <path stroke="black" d="M 0 0 L 200 100" />
         </svg>
-        <Element
-          x={0}
-          y={0}
-        />
-        <Element
-          x={3}
-          y={10}
-        />
+        { elements }
       </Paper>
     </Box>
-    
-
   );
 }
