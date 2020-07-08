@@ -1,12 +1,10 @@
 import React from "react";
 import { Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import Draggable from 'react-draggable';
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
+import { updatePosition } from "../actions";
+import { ElementData } from "../types";
 
-type Props = {
-  x: number,
-  y: number
-}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,13 +29,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Element(props: Props) {
+export default function Element(props: ElementData) {
   const classes = useStyles();
+
+  const updateElementPosition = (_: DraggableEvent, data: DraggableData) => {
+    updatePosition(props.id, data.x, data.y);
+  };
 
   return (
     <Draggable
       defaultPosition={{x: props.x, y: props.y}}
-      grid={[25, 25]}>
+      grid={[25, 25]}
+      onStop={updateElementPosition}>
       <Box className={classes.root}>
         <p>Drag from here</p>
       </Box>
