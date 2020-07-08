@@ -3,7 +3,7 @@ import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Element from "../element/Element";
 import { EditorData } from "../types";
-import grid from '../../../common/images/grid.png';
+import grid from '../../../common/images/grid.jpg';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,18 +20,22 @@ const useStyles = makeStyles((theme: Theme) =>
       background: theme.palette.primary.light,
     },
     paper: {
-      padding: theme.spacing(1),
-      backgroundImage: `url(${grid})`,
-      height: '90%',
-      width: '90%',
+      position: 'relative',
+      height: '800px',
+      width: '1800px',
     },
-    draggableElementsBox: {
-      height: '1000px', 
-      width: '1000px', 
-      padding: '10px', 
-      justifyContent: 'center',
-      flexDirection: 'column',
-      alignItems: 'center',
+    image: {      
+      backgroundImage: `url(${grid})`,
+      backgroundRepeat: 'repeat',
+      backgroundSize: '200px 200px',
+      opacity: '0.7',
+      position: 'absolute',
+      height: '800px',
+      width: '1800px',
+    },
+    elements: {
+      height: '800px',
+      width: '1800px',
     }
   }),
 );
@@ -54,11 +58,13 @@ export default function Grid(props: Props) {
 
   return (
     <Box onMouseMove={mouseMoved} className={classes.root}>
-      <Paper 
-      elevation={9}
-      className={classes.paper}>
-        <h3>Mouse Coords - x={coords.x} y={coords.y}</h3>
-        { elements }
+      <Paper className={classes.paper}
+      elevation={9}>
+        <Box className={classes.image}/>
+        <Box className={classes.elements}>
+          <h3>Mouse Coords - x={coords.x} y={coords.y}</h3>
+          { elements }
+        </Box>
       </Paper>
     </Box>
   );
