@@ -61,7 +61,6 @@ export default function Grid(props: Props) {
       elevation={9}>
         <Box className={classes.image}/>
         <Box className={classes.elements}>
-          <h3>Mouse Coords - x={coords.x} y={coords.y}</h3>
           { elements }
         </Box>
       </Paper>
