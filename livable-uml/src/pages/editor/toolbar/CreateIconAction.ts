@@ -1,6 +1,9 @@
 import { addElement } from '../actions';
-import { Element } from '../types';
+import { ElementData } from '../types';
+
+let counter = 0;
 
 export default function createIconAction() {
-    addElement({x: 0, y: 0} as Element);
+    addElement({id: counter, x: 0, y: 0} as ElementData);
+    counter += 1;
 }
