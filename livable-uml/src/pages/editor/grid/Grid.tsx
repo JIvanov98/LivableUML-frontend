@@ -32,10 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       height: '800px',
       width: '1800px',
-    },
-    elements: {
-      height: '800px',
-      width: '1800px',
     }
   }),
 );
@@ -53,9 +49,7 @@ export default function Grid(props: Props) {
       <Paper className={classes.paper}
       elevation={9}>
         <Box className={classes.image}/>
-        <Box className={classes.elements}>
-          { elements }
-        </Box>
+        { elements }
       </Paper>
     </Box>
   );
