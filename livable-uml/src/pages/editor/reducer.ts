@@ -14,7 +14,7 @@ export function editorReducer(
       return {elements: [...state.elements, action.payload]};
     case UPDATE_POSITION:
       return {elements: state.elements.map(function(e){ 
-        if (e.id == action.id) {
+        if (e.id === action.id) {
           return {id: e.id, x: action.newX, y: action.newY};
         } else {
           return e;
