@@ -36,7 +36,7 @@ import Home from './pages/home/Home';
 
 const home = (
   <Route path="/">
-    <Home />
+    <Editor />
   </Route>
 );
 
