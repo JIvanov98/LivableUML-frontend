@@ -2,7 +2,6 @@ import React from "react";
 import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Element from "../element/Element";
-import { store } from '../../../redux/store';
 import { EditorData } from "../types";
 
 const useStyles = makeStyles((theme: Theme) =>
