@@ -9,7 +9,7 @@ export function addElement(element: ElementData) {
     });
 }
 
-export function updatePosition(id: number, x: number, y: number) {
+export function updatePosition(id: string, x: number, y: number) {
     store.dispatch({
         type: UPDATE_POSITION,
         id: id,

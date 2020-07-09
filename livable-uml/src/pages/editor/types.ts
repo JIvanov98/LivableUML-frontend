@@ -1,9 +1,9 @@
 export interface EditorData {
-    elements: ElementData[];
+    elements: {[id: string]: ElementData};
 }
 
 export interface ElementData {
-    id: number;
+    id: string; 
     x: number;
     y: number;
 }
@@ -19,7 +19,7 @@ interface AddAction {
 
 interface UpdatePositionAction {
     type: typeof UPDATE_POSITION;
-    id: number;
+    id: string;
     newX: number;
     newY: number;
 }
