@@ -1,5 +1,5 @@
-import { addElement } from '../actions';
-import { ElementData } from '../types';
+import { addElement } from '../../actions';
+import { ElementData } from '../../types';
 
 let counter = 0;
 
