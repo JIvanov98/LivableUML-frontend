@@ -16,6 +16,7 @@ export type StoreType = {
 
 function createRootReducer(history: History) {
     return combineReducers({
+        userTypes: userTypesReducer,
         editor: editorReducer,
         router: connectRouter(history)
     });

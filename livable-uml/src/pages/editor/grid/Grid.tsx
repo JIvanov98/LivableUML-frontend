@@ -42,7 +42,12 @@ type Props = {
 
 export default function Grid(props: Props) {
   const classes = useStyles();
-  const elements = props.data.elements.map((e) => <Element id={e.id} x={e.x} y={e.y}></Element>);
+
+  const userTypes: Set<string> = new Set();
+  const elements = props.data.elements.map((e) => {
+    userTypes.add(e.name);
+    return <Element id={e.id} x={e.x} y={e.y}></Element>;
+  });
 
   return (
     <Box className={classes.root}>
