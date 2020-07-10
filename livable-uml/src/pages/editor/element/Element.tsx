@@ -4,7 +4,7 @@ import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { updatePosition } from "../actions";
 import { ElementData } from "../EditorTypes";
-import Attributes from "./Attributes";
+import Attributes from "./attribute/Attributes";
 import Methods from "./Methods";
 
 

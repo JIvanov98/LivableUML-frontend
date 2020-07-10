@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import { AttributeData, Visibility, Variable, PrimitiveTypes } from "../EditorTypes";
-import Attribute from "./Attribute";
+import { AttributeData, Visibility, Variable, PrimitiveTypes } from "../../EditorTypes";
+import AttributeHandler from "./AttributeHandler";
 
 
 type Props = {
@@ -23,14 +23,19 @@ export default function Attributes(props: Props) {
 
 
   const attributes = props.attributes.map((a) => 
-  <Attribute attributeData={a} userTypes={props.userTypes} elementId={props.elementId}/>);
+    <AttributeHandler 
+      attributeData={a} 
+      userTypes={props.userTypes} 
+      elementId={props.elementId}/>
+  );
 
   return (
     <Grid direction="column">
-      <Attribute 
-      attributeData={mockAttribute} 
-      userTypes={props.userTypes} 
-      elementId={props.elementId}/>
+      <AttributeHandler
+        attributeData={mockAttribute}
+        userTypes={props.userTypes}
+        elementId={0}
+      />
       { attributes }
       {/* add attribute button here */}
     </Grid>
