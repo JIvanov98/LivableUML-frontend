@@ -60,7 +60,6 @@ export default function Element(props: Props) {
   );
 }
 
-
 const TitleTextField = styled(TextField)({
   margin: "1em",
   fontSize: "16px",
