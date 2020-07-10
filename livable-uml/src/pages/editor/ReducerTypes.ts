@@ -9,6 +9,12 @@ interface AddAction {
     payload: ElementData
 }
 
+
+interface DeleteAction {
+    type: typeof DELETE_ELEMENT,
+    id: number
+}
+
 interface UpdatePositionAction {
     type: typeof UPDATE_POSITION,
     id: number,
@@ -18,6 +24,7 @@ interface UpdatePositionAction {
 
 export type UserActionTypes =
 | AddAction
+| DeleteAction
 | UpdatePositionAction;
 
 export const ADD_NAME = 'ADD_NAME';
