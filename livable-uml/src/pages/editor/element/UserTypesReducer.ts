@@ -16,6 +16,8 @@ export function UserTypesReducer(
         // error?
         return state;
       }
+
+    // TODO: delete_name is unnecessary as delete_element will remove it
     case DELETE_NAME:
       var newState = new Set(state);
       newState.delete(action.name);
