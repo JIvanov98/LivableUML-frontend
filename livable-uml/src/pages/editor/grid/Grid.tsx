@@ -1,8 +1,10 @@
 import React from "react";
 import { Paper, Box } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import { EditorData } from "../EditorTypes";
+import { connect } from "react-redux";
+import { StoreType } from "../../../redux";
 import Element from "../element/Element";
-import { EditorData } from "../types";
 import grid from '../../../common/images/grid.jpg';
 
 
@@ -37,12 +39,16 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type Props = {
-  data: EditorData;
+  data: EditorData,
+  userTypes: Set<string>
 }
 
-export default function Grid(props: Props) {
+function Grid(props: Props) {
   const classes = useStyles();
-  const elements = props.data.elements.map((e) => <Element id={e.id} x={e.x} y={e.y}></Element>);
+
+  const elements = props.data.elements.map(
+    (e) => <Element elementData={e} userTypes={props.userTypes}></Element>
+  );
 
   return (
     <Box className={classes.root}>
@@ -54,3 +60,12 @@ export default function Grid(props: Props) {
     </Box>
   );
 }
+
+const mapStateToProps = (state: StoreType) => {
+  return {
+    data: state.editor,
+    userTypes: state.userTypes
+  };
+};
+
+export default connect(mapStateToProps)(Grid);
