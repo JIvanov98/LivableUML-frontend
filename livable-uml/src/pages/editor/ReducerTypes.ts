@@ -1,31 +1,4 @@
-export interface EditorData {
-    elements: ElementData[]
-}
-
-export interface ElementData {
-    name: string,
-    id: number,
-    x: number,
-    y: number,
-    attributes: AttributeData[]
-}
-
-export interface AttributeData {
-    visibility: Visibility,
-    variable: Variable
-}
-
-export interface Variable {
-    name: string,
-    type: PrimitiveTypes | string
-}
-
-export interface Method {
-    visibility: Visibility,
-    name: string,
-    paramters: Variable[],
-    returnType: PrimitiveTypes | string
-}
+import { ElementData } from './EditorTypes';
 
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const DELETE_ELEMENT = 'DELETE_ELEMENT';
@@ -46,24 +19,6 @@ interface UpdatePositionAction {
 export type UserActionTypes =
 | AddAction
 | UpdatePositionAction;
-
-
-export enum Visibility {
-    Public = "+",
-    Private = "-",
-    Protected = "#"
-}
-
-export enum PrimitiveTypes {
-    Int,
-    Float,
-    Double,
-    String,
-    Boolean,
-    Char
-}
-
-
 
 export const ADD_NAME = 'ADD_NAME';
 export const DELETE_NAME = 'DELETE_NAME';

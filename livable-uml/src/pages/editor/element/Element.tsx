@@ -3,7 +3,7 @@ import { Box, TextField, Divider, styled } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { updatePosition } from "../actions";
-import { ElementData } from "../types";
+import { ElementData } from "../EditorTypes";
 import Attributes from "./Attributes";
 import Methods from "./Methods";
 
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type Props = {
   elementData: ElementData,
-  userTypes: string[]
+  userTypes: Set<string>
 }
 
 export default function Element(props: Props) {
@@ -50,7 +50,7 @@ export default function Element(props: Props) {
       bounds="parent"
       onStop={updateElementPosition}>
       <Box className={classes.root}>
-        <TitleTextField multiline rowsMax={3}/>
+        <TitleTextField defaultValue={element.name} multiline rowsMax={3}/>
         <Divider />
         <Attributes attributes={element.attributes} userTypes={props.userTypes} elementId={element.id}/>
         <Divider />

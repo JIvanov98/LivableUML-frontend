@@ -1,4 +1,5 @@
-import { ADD_ELEMENT, ElementData, UPDATE_POSITION } from './types';
+import { ElementData } from './EditorTypes';
+import { ADD_ELEMENT, UPDATE_POSITION } from './ReducerTypes'
 import { store } from '../../redux/store';
 
 

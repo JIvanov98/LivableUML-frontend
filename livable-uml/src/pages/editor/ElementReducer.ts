@@ -1,11 +1,11 @@
-import { EditorData, UserActionTypes, ADD_ELEMENT, UPDATE_POSITION, ElementData } from './types';
-
+import { EditorData } from './EditorTypes';
+import { UserActionTypes, ADD_ELEMENT, UPDATE_POSITION } from './ReducerTypes'
 
 const initialState: EditorData = {
   elements: []
 };
 
-export function editorReducer(
+export function ElementReducer(
   state = initialState,
   action: UserActionTypes
 ): EditorData {
@@ -15,7 +15,13 @@ export function editorReducer(
     case UPDATE_POSITION:
       return {elements: state.elements.map(function(e){ 
         if (e.id === action.id) {
-          return {id: e.id, x: action.newX, y: action.newY};
+          return {
+            id: e.id,
+            name: e.name, 
+            x: action.newX, 
+            y: action.newY,
+            attributes: e.attributes
+          };
         } else {
           return e;
         }

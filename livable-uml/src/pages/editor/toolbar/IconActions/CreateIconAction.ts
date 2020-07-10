@@ -1,9 +1,17 @@
 import { addElement } from '../../actions';
-import { ElementData } from '../../types';
+import { ElementData } from '../../EditorTypes';
 
 let counter = 0;
 
 export default function createIconAction() {
-    addElement({id: counter, x: 0, y: 0} as ElementData);
-    counter += 1;
+  addElement(
+    {
+      id: counter,
+      name: `Class${counter}`,
+      x: 0,
+      y: 0,
+      attributes: []
+    } as ElementData
+  );
+  counter += 1;
 }

@@ -1,9 +1,9 @@
-import { ADD_NAME, DELETE_NAME, UPDATE_NAME, NameActions } from '../types';
+import { ADD_NAME, DELETE_NAME, UPDATE_NAME, NameActions } from '../ReducerTypes'
 
 
 const initialState: Set<string> = new Set();
 
-export function userTypesReducer(
+export function UserTypesReducer(
   state = initialState,
   action: NameActions
 ): Set<string> {
